@@ -9,35 +9,38 @@
 #final y terminar el programa. Usted debe especificar al usuario cómo y en que orden debe
 #introducir los valores y hacer las validaciones correspondientes.
 
-cargarMatriz = function(){
-  nS <- readline("Ingrese el tamaño de la matriz:")
+loadMatrix = function(){
+  nS <- readline("Enter the size of the matrix separated by coma (,):")
   n <- strtoi(nS)
   v = c()
-  print("Ingrese la matriz por filas, separando las entradas con comas (,)")
+  print("Enter the data by rows, separated by coma (,)")
   for (i in 1:n) {
-    vS = readline(paste("Fila ", i, ": ", sep = ""))
+    vS = readline(paste("Row ", i, ": ", sep = ""))
     v = c(v,strtoi(strsplit(vS, ",")[[1]]))
   }
-  matriz = matrix(v, nrow = n, byrow = T)
-  return(matriz)
+  #matrix creation
+  m = matrix(v, nrow = n, byrow = T)
+  return(m)
 }
 
-
-elemental_1 = function(matriz, i, j){
-  aux = matriz[i,]
-  matriz[i,] = matriz[j,]
-  matriz[j,] = aux
-  return(matriz)
+#following matrix computes the type 1 elemental row operation
+elemental_1 = function(m, i, j){
+  aux = m[i,]
+  m[i,] = m[j,]
+  m[j,] = aux
+  return(m)
 }
 
-elemental_2 = function(matriz, i, a){
-  matriz[i,] = a*matriz[i,] 
-  return(matriz)
+#following matrix computes the type 2 elemental row operation
+elemental_2 = function(m, i, a){
+  m[i,] = a*m[i,] 
+  return(m)
 }
 
-elemental_3 = function(matriz, i, j, b){
-  matriz[i,] = matriz[i,] + b*matriz[j,]
-  return(matriz)
+#following matrix computes the type 3 elemental row operation
+elemental_3 = function(m, i, j, b){
+  m[i,] = m[i,] + b*m[j,]
+  return(m)
 }
 
 
