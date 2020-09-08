@@ -10,17 +10,23 @@
 #introducir los valores y hacer las validaciones correspondientes.
 
 loadMatrix = function(){
-  nS <- readline("Enter the size of the matrix separated by coma (,):")
-  n <- strtoi(nS)
+  s = readline("Enter the size of the mxn matrix separated by coma (,):")
+  sNum = strtoi(strsplit(s,",")[[1]]) #here we split and parse 
+                                      #the input data to integer
+  m = sNum[1]
+  n = sNum[2]
+  print(m)
+  print(n)
   v = c()
   print("Enter the data by rows, separated by coma (,)")
-  for (i in 1:n) {
+  for (i in 1:m) {
     vS = readline(paste("Row ", i, ": ", sep = ""))
-    v = c(v,strtoi(strsplit(vS, ",")[[1]]))
+    v = c(v,strtoi(strsplit(vS, ",")[[1]])) #here we split the row data
+                                            #and parse the input data to integer
   }
-  #matrix creation
-  m = matrix(v, nrow = n, byrow = T)
-  return(m)
+  #matrix creation by using the matrix data structure
+  mat = matrix(v, nrow = m, byrow = T)
+  return(mat)
 }
 
 #following matrix computes the type 1 elemental row operation
@@ -48,6 +54,6 @@ m = matrix(c(1,2,3,4,5,6,7,8,9), nrow = 3, byrow = T)
 elemental_3(m,3,1,-7)
 
 
-cargarMatriz()
+loadMatrix()
 
 rm(list = ls())
