@@ -51,8 +51,7 @@ elemental_3 = function(m, i, j, b){
 
 #following function returns the question: 
 #Is the matrix m in Echelon form
-echelon_form = function(mat){
-  
+is_echelon_form = function(mat){
   #number of rows
   m = dim(mat)[1]
   #number of columns
