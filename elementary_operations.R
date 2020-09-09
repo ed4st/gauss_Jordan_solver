@@ -29,28 +29,28 @@ loadMatrix = function(){
   return(mat)
 }
 
-#following function computes the type 1 elemental row operation
-elemental_1 = function(m, i, j){
+#following function performs the type 1 elementary row operation
+elementary_1 = function(m, i, j){
   aux = m[i,]
   m[i,] = m[j,]
   m[j,] = aux
   return(m)
 }
 
-#following function computes the type 2 elemental row operation
-elemental_2 = function(m, i, a){
+#following function performs the type 2 elementary row operation
+elementary_2 = function(m, i, a){
   m[i,] = a*m[i,] 
   return(m)
 }
 
-#following function computes the type 3 elemental row operation
-elemental_3 = function(m, i, j, b){
+#following function performs the type 3 elementary row operation
+elementary_3 = function(m, i, j, b){
   m[i,] = m[i,] + b*m[j,]
   return(m)
 }
 
 #following function returns the question: 
-#Is the matrix m in Echelon form
+#Is the matrix m in Echelon form?
 is_echelon_form = function(mat){
   #number of rows
   m = dim(mat)[1]
