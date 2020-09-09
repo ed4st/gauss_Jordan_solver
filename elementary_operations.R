@@ -1,14 +1,5 @@
-#punto 1
 
-#Programe una función en r que reciba de entrada por parte del usuario el
-#tamaño de una matriz y las entradas de la misma en orden de izquierda a derecha,
-#de arriba a abajo. Luego, debe ir preguntando que operación elemental debe hacerse,
-# y una vez que el usuario indique precisamente cuál, diciendo exactamente que renglones
-#y números estarán involucrados, debe mostrarle al usuario la matriz resultante.  Cuando
-#el usuario llegue a una forma escalonada, deberá decirle al usuario, mostrarle la matriz
-#final y terminar el programa. Usted debe especificar al usuario cómo y en que orden debe
-#introducir los valores y hacer las validaciones correspondientes.
-
+#----------------------1----------------------------------------------
 loadMatrix = function(){
   s = readline("Enter the size of the mxn matrix separated by coma (,):")
   sNum = strtoi(strsplit(s,",")[[1]]) #here we split and parse 
@@ -111,17 +102,7 @@ rowpivot = function (cl){
 }
 
 
-m = matrix(c(1,2,3,4,0,6,0,8,0,0,0,0), nrow = 3, byrow = T)
-m
-echelon_form(m)
 
-dim(m)[1]
-elemental_3(m,3,1,-7)
-
-
-loadMatrix()
-
-rm(m)
 
 main_function = function(){
   m = loadMatrix()

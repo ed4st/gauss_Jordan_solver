@@ -51,6 +51,7 @@
 \usepackage{alltt}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{enumerate}% http://ctan.org/pkg/enumerate
 \usepackage[thinc]{esdiff}	
 \usepackage{amsfonts}
@@ -63,8 +64,243 @@
 
 \maketitle
 
-\section{Primera parte}
+\section*{Primera parte}
+Para la primera parte tenemos que llamar la función \texttt{main\_function} ubicada en el archivo \texttt{elementary\_operations.R}. Así, tomando como ejemplo la siguiente martriz:
+\begin{equation*}
+m=
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+4 & 5 & 6 & 3\\
+7 & 8 & 9 & 5
+\end{pmatrix*}
+\end{equation*}
+para ingresarla nos pedirá que ingresemos el tamaño de la matriz separado por coma. En nuestro caso, la matriz es $3\times 4$:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# > main_function()}
+\hlcom{# Enter the size of the mxn matrix separated by coma (,):3,4}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Luego, nos pedirá los datos de las filas separados por coma:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# [1] "Enter the data by rows, separated by coma (,)"}
+\hlcom{# Row 1: 1,2,3,-1}
+\hlcom{# Row 2: 4,5,6,3}
+\hlcom{# Row 3: 7,8,9,5}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Una vez hecho esto, nos aparecerá un menú:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# [1] "1. Intercambiar filas."}
+\hlcom{# [1] "2. Multiplicar una fila por un escalar distinto de 0."}
+\hlcom{# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."}
+\hlcom{# [1] "4. Salir"}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+En nuestro caso, seleccionaremos 1, e intercambiamos la fila 2 y 3:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# ¿Qué operación quieres realizar?:1}
+\hlcom{# ingresa las filas a intercambiar, separado por coma:2,3}
+\hlcom{# [1] "¡operación realizada!"}
+\hlcom{#      [,1] [,2] [,3] [,4]}
+\hlcom{# [1,]    1    2    3   -1}
+\hlcom{# [2,]    7    8    9    5}
+\hlcom{# [3,]    4    5    6    3}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Efectivamente, nuestra matriz tiene la forma:
+\begin{equation*}
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+7 & 8 & 9 & 5\\
+4 & 5 & 6 & 3
+\end{pmatrix*}
+\end{equation*}
+Por motivos prácticos volveremos a intercambiar la mismas filas (2 y 3): 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# [1] "1. Intercambiar filas."}
+\hlcom{# [1] "2. Multiplicar una fila por un escalar distinto de 0."}
+\hlcom{# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."}
+\hlcom{# [1] "4. Salir"}
+\hlcom{# ¿Qué operación quieres realizar?:1}
+\hlcom{# ingresa las filas a intercambiar, separado por coma:2,3}
+\hlcom{# [1] "¡operación realizada!"}
+\hlcom{#      [,1] [,2] [,3] [,4]}
+\hlcom{# [1,]    1    2    3   -1}
+\hlcom{# [2,]    4    5    6    3}
+\hlcom{# [3,]    7    8    9    5}
+\hlcom{# [1] "1. Intercambiar filas."}
+\hlcom{# [1] "2. Multiplicar una fila por un escalar distinto de 0."}
+\hlcom{# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."}
+\hlcom{# [1] "4. Salir"}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+De nuevo, obtenemos nuestra matris original $m$. 
+
+Ahora con la opción 2, multiplicaremos la fila 2 por 2. Esto es:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# [1] "1. Intercambiar filas."}
+\hlcom{# [1] "2. Multiplicar una fila por un escalar distinto de 0."}
+\hlcom{# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."}
+\hlcom{# [1] "4. Salir"}
+\hlcom{# ¿Qué operación quieres realizar?:2}
+\hlcom{# ingresa la fila  y el escalar, separado por coma:2,2}
+\hlcom{# [1] "¡operación realizada!"}
+\hlcom{#      [,1] [,2] [,3] [,4]}
+\hlcom{# [1,]    1    2    3   -1}
+\hlcom{# [2,]    8   10   12    6}
+\hlcom{# [3,]    7    8    9    5}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Efectivamente, tenemos la matriz:
+\begin{equation*}
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+8 & 10 & 12 & 6\\
+7 & 8 & 9 & 5
+\end{pmatrix*}
+\end{equation*}
+ Ahora, con la operación 3, empezaremos a reducirla a forma escalonada:
+ Hagamos $F_2 = F_2 -8F_1$:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# [1] "1. Intercambiar filas."}
+\hlcom{# [1] "2. Multiplicar una fila por un escalar distinto de 0."}
+\hlcom{# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."}
+\hlcom{# [1] "4. Salir"}
+\hlcom{# ¿Qué operación quieres realizar?:3}
+\hlcom{# ingresa la fila a la que sumarás,}
+\hlcom{#                    la fila que sumarás y el múltiplo escalar de esta última,}
+\hlcom{#                    separado por coma:2,1,-8}
+\hlcom{# [1] "¡operación realizada!"}
+\hlcom{# [1] -8}
+\hlcom{#      [,1] [,2] [,3] [,4]}
+\hlcom{# [1,]    1    2    3   -1}
+\hlcom{# [2,]    0   -6  -12   14}
+\hlcom{# [3,]    7    8    9    5}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Ahora haremos $F_3 = F_3 - 7F_1$:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# [1] "1. Intercambiar filas."}
+\hlcom{# [1] "2. Multiplicar una fila por un escalar distinto de 0."}
+\hlcom{# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."}
+\hlcom{# [1] "4. Salir"}
+\hlcom{# ¿Qué operación quieres realizar?:3}
+\hlcom{# ingresa la fila a la que sumarás,}
+\hlcom{#                    la fila que sumarás y el múltiplo escalar de esta última,}
+\hlcom{#                    separado por coma:3,1,-7}
+\hlcom{# [1] "¡operación realizada!"}
+\hlcom{# [1] -7}
+\hlcom{#      [,1] [,2] [,3] [,4]}
+\hlcom{# [1,]    1    2    3   -1}
+\hlcom{# [2,]    0   -6  -12   14}
+\hlcom{# [3,]    0   -6  -12   12}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Por último haremos $F_3 = F_3 - F_2$ para obtener la forma escalonada:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# [1] "1. Intercambiar filas."}
+\hlcom{# [1] "2. Multiplicar una fila por un escalar distinto de 0."}
+\hlcom{# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."}
+\hlcom{# [1] "4. Salir"}
+\hlcom{# ¿Qué operación quieres realizar?:3}
+\hlcom{# ingresa la fila a la que sumarás,}
+\hlcom{#                    la fila que sumarás y el múltiplo escalar de esta última,}
+\hlcom{#                    separado por coma:3,2,-1}
+\hlcom{# [1] "¡operación realizada!"}
+\hlcom{# [1] -1}
+\hlcom{#      [,1] [,2] [,3] [,4]}
+\hlcom{# [1,]    1    2    3   -1}
+\hlcom{# [2,]    0   -6  -12   14}
+\hlcom{# [3,]    0    0    0   -2}
+\hlcom{# [1] "La matriz se redujo a forma escalonada:"}
+\hlcom{#      [,1] [,2] [,3] [,4]}
+\hlcom{# [1,]    1    2    3   -1}
+\hlcom{# [2,]    0   -6  -12   14}
+\hlcom{# [3,]    0    0    0   -2}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Donde confirmamos que el programa verifica que se llegó a la forma escalonada deseada:
+ \begin{equation*}
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+0 & -6 & -12 & 14\\
+0 & 0 & 0 & -2
+\end{pmatrix*}
+\end{equation*}
 
 
-\section{Segunda parte}
+
+\section*{Segunda parte}
+Para la segunda parte, es necesario estar en el archivo \texttt{reduce\_to\_echelon.R}, y ejecutar la función \texttt{main\_function2} presente allí mismo:
+tomando el mismo ejemplo:
+\begin{equation*}
+m=
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+4 & 5 & 6 & 3\\
+7 & 8 & 9 & 5
+\end{pmatrix*}
+\end{equation*}
+para ingresarla nos pedirá que ingresemos el tamaño de la matriz separado por coma. En nuestro caso, la matriz es $3\times 4$:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# main_function2()}
+\hlcom{# Enter the size of the mxn matrix separated by coma (,):3,4}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+De nuevo, llenamos la matriz por filas:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{# Enter the size of the mxn matrix separated by coma (,):3,4}
+\hlcom{# [1] "Enter the data by rows, separated by coma (,)"}
+\hlcom{# Row 1: 1,2,3,-1}
+\hlcom{# Row 2: 4,5,6,3}
+\hlcom{# Row 3: 7,8,9,5}
+\hlcom{#      [,1] [,2] [,3] [,4]}
+\hlcom{# [1,]    1    2    3   -1}
+\hlcom{# [2,]    0   -3   -6    7}
+\hlcom{# [3,]    0    0    0   -2}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+Y efectivamente, una vez llenada, nos redujo a la matriz escalonada reducida:
+\begin{equation*}
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+0 & -3 & -6 & 7\\
+0 & 0 & 0 & -2
+\end{pmatrix*}
+\end{equation*}
+
+
 \end{document}

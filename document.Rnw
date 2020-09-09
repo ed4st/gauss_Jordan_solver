@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{enumerate}% http://ctan.org/pkg/enumerate
 \usepackage[thinc]{esdiff}	
 \usepackage{amsfonts}
@@ -13,8 +14,199 @@
 
 \maketitle
 
-\section{Primera parte}
+\section*{Primera parte}
+Para la primera parte tenemos que llamar la función \texttt{main\_function} ubicada en el archivo \texttt{elementary\_operations.R}. Así, tomando como ejemplo la siguiente martriz:
+\begin{equation*}
+m=
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+4 & 5 & 6 & 3\\
+7 & 8 & 9 & 5
+\end{pmatrix*}
+\end{equation*}
+para ingresarla nos pedirá que ingresemos el tamaño de la matriz separado por coma. En nuestro caso, la matriz es $3\times 4$:
+<<>>=
+# > main_function()
+# Enter the size of the mxn matrix separated by coma (,):3,4
+@
+Luego, nos pedirá los datos de las filas separados por coma:
+<<>>=
+# [1] "Enter the data by rows, separated by coma (,)"
+# Row 1: 1,2,3,-1
+# Row 2: 4,5,6,3
+# Row 3: 7,8,9,5
+@
+Una vez hecho esto, nos aparecerá un menú:
+<<>>=
+# [1] "1. Intercambiar filas."
+# [1] "2. Multiplicar una fila por un escalar distinto de 0."
+# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."
+# [1] "4. Salir"
+@
+En nuestro caso, seleccionaremos 1, e intercambiamos la fila 2 y 3:
+<<>>=
+# ¿Qué operación quieres realizar?:1
+# ingresa las filas a intercambiar, separado por coma:2,3
+# [1] "¡operación realizada!"
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3   -1
+# [2,]    7    8    9    5
+# [3,]    4    5    6    3
+@
+Efectivamente, nuestra matriz tiene la forma:
+\begin{equation*}
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+7 & 8 & 9 & 5\\
+4 & 5 & 6 & 3
+\end{pmatrix*}
+\end{equation*}
+Por motivos prácticos volveremos a intercambiar la mismas filas (2 y 3): 
+<<>>=
+# [1] "1. Intercambiar filas."
+# [1] "2. Multiplicar una fila por un escalar distinto de 0."
+# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."
+# [1] "4. Salir"
+# ¿Qué operación quieres realizar?:1
+# ingresa las filas a intercambiar, separado por coma:2,3
+# [1] "¡operación realizada!"
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3   -1
+# [2,]    4    5    6    3
+# [3,]    7    8    9    5
+# [1] "1. Intercambiar filas."
+# [1] "2. Multiplicar una fila por un escalar distinto de 0."
+# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."
+# [1] "4. Salir"
+@
+De nuevo, obtenemos nuestra matris original $m$. 
+
+Ahora con la opción 2, multiplicaremos la fila 2 por 2. Esto es:
+<<>>=
+# [1] "1. Intercambiar filas."
+# [1] "2. Multiplicar una fila por un escalar distinto de 0."
+# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."
+# [1] "4. Salir"
+# ¿Qué operación quieres realizar?:2
+# ingresa la fila  y el escalar, separado por coma:2,2
+# [1] "¡operación realizada!"
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3   -1
+# [2,]    8   10   12    6
+# [3,]    7    8    9    5
+@
+Efectivamente, tenemos la matriz:
+\begin{equation*}
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+8 & 10 & 12 & 6\\
+7 & 8 & 9 & 5
+\end{pmatrix*}
+\end{equation*}
+ Ahora, con la operación 3, empezaremos a reducirla a forma escalonada:
+ Hagamos $F_2 = F_2 -8F_1$:
+<<>>=
+# [1] "1. Intercambiar filas."
+# [1] "2. Multiplicar una fila por un escalar distinto de 0."
+# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."
+# [1] "4. Salir"
+# ¿Qué operación quieres realizar?:3
+# ingresa la fila a la que sumarás,
+#                    la fila que sumarás y el múltiplo escalar de esta última,
+#                    separado por coma:2,1,-8
+# [1] "¡operación realizada!"
+# [1] -8
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3   -1
+# [2,]    0   -6  -12   14
+# [3,]    7    8    9    5
+@
+Ahora haremos $F_3 = F_3 - 7F_1$:
+<<>>=
+# [1] "1. Intercambiar filas."
+# [1] "2. Multiplicar una fila por un escalar distinto de 0."
+# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."
+# [1] "4. Salir"
+# ¿Qué operación quieres realizar?:3
+# ingresa la fila a la que sumarás,
+#                    la fila que sumarás y el múltiplo escalar de esta última,
+#                    separado por coma:3,1,-7
+# [1] "¡operación realizada!"
+# [1] -7
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3   -1
+# [2,]    0   -6  -12   14
+# [3,]    0   -6  -12   12
+@
+Por último haremos $F_3 = F_3 - F_2$ para obtener la forma escalonada:
+<<>>=
+# [1] "1. Intercambiar filas."
+# [1] "2. Multiplicar una fila por un escalar distinto de 0."
+# [1] "3. Remplazar una fila por un múltiplo escalar de otra fila."
+# [1] "4. Salir"
+# ¿Qué operación quieres realizar?:3
+# ingresa la fila a la que sumarás,
+#                    la fila que sumarás y el múltiplo escalar de esta última,
+#                    separado por coma:3,2,-1
+# [1] "¡operación realizada!"
+# [1] -1
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3   -1
+# [2,]    0   -6  -12   14
+# [3,]    0    0    0   -2
+# [1] "La matriz se redujo a forma escalonada:"
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3   -1
+# [2,]    0   -6  -12   14
+# [3,]    0    0    0   -2
+@
+Donde confirmamos que el programa verifica que se llegó a la forma escalonada deseada:
+ \begin{equation*}
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+0 & -6 & -12 & 14\\
+0 & 0 & 0 & -2
+\end{pmatrix*}
+\end{equation*}
 
 
-\section{Segunda parte}
+
+\section*{Segunda parte}
+Para la segunda parte, es necesario estar en el archivo \texttt{reduce\_to\_echelon.R}, y ejecutar la función \texttt{main\_function2} presente allí mismo:
+tomando el mismo ejemplo:
+\begin{equation*}
+m=
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+4 & 5 & 6 & 3\\
+7 & 8 & 9 & 5
+\end{pmatrix*}
+\end{equation*}
+para ingresarla nos pedirá que ingresemos el tamaño de la matriz separado por coma. En nuestro caso, la matriz es $3\times 4$:
+<<>>=
+# main_function2()
+# Enter the size of the mxn matrix separated by coma (,):3,4
+@
+De nuevo, llenamos la matriz por filas:
+<<>>=
+# Enter the size of the mxn matrix separated by coma (,):3,4
+# [1] "Enter the data by rows, separated by coma (,)"
+# Row 1: 1,2,3,-1
+# Row 2: 4,5,6,3
+# Row 3: 7,8,9,5
+#      [,1] [,2] [,3] [,4]
+# [1,]    1    2    3   -1
+# [2,]    0   -3   -6    7
+# [3,]    0    0    0   -2
+@
+Y efectivamente, una vez llenada, nos redujo a la matriz escalonada reducida:
+\begin{equation*}
+\begin{pmatrix*}[l]
+1 & 2 & 3 & -1\\
+0 & -3 & -6 & 7\\
+0 & 0 & 0 & -2
+\end{pmatrix*}
+\end{equation*}
+
+
 \end{document}

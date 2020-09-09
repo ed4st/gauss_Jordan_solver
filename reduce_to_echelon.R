@@ -1,4 +1,24 @@
+#-----------------------------------2---------------------------------------
 #following function verifies if a vector is the zero vector
+loadMatrix = function(){
+  s = readline("Enter the size of the mxn matrix separated by coma (,):")
+  sNum = strtoi(strsplit(s,",")[[1]]) #here we split and parse 
+  #the input data to integer
+  m = sNum[1]
+  n = sNum[2]
+  v = c()
+  print("Enter the data by rows, separated by coma (,)")
+  for (i in 1:m) {
+    vS = readline(paste("Row ", i, ": ", sep = ""))
+    v = c(v,strtoi(strsplit(vS, ",")[[1]])) #here we split the row data
+    #and parse the input data to integer
+  }
+  #matrix creation by using the matrix data structure
+  mat = matrix(v, nrow = m, byrow = T)
+  return(mat)
+}
+
+
 is_zero = function(c){
   for(num in c){
     if(num != 0){
@@ -49,9 +69,10 @@ reduce_to_echelon = function(m){
   return(m)
 }
 
+main_function2 = function(){
+  m = loadMatrix()
+  prmatrix(reduce_to_echelon(m))
+}
 
-m = matrix(c(1,2,3,4,5,6,7,8,9), nrow = 3, byrow = T)
-m
-m = elementary_3(m, 2, 1 , -4)
-elementary_3(m, 3, 1 , -7)
-reduce_to_echelon(m)
+main_function2()
+
