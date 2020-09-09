@@ -15,8 +15,6 @@ loadMatrix = function(){
                                       #the input data to integer
   m = sNum[1]
   n = sNum[2]
-  print(m)
-  print(n)
   v = c()
   print("Enter the data by rows, separated by coma (,)")
   for (i in 1:m) {
@@ -123,4 +121,69 @@ elemental_3(m,3,1,-7)
 
 loadMatrix()
 
-rm(list = ls())
+rm(m)
+
+main_function = function(){
+  m = loadMatrix()
+  repeat{
+    
+    print("1. Intercambiar filas.")
+    print("2. Multiplicar una fila por un escalar distinto de 0.")
+    print("3. Remplazar una fila por un múltiplo escalar de otra fila.")
+    print("4. Salir")
+    entry = strtoi(readline("¿Qué operación quieres realizar?:"))
+    if(entry == 4){
+      break
+    }
+    else if(entry == 1){
+      s = readline("ingresa las filas a intercambiar, separado por coma:")
+      sInt = strtoi(strsplit(s,",")[[1]])
+      i = sInt[1]
+      j = sInt[2]
+      print("¡operación realizada!")
+      m = elementary_1(m,i,j)
+      prmatrix(m)
+      if(is_echelon_form(m)){
+        print("La matriz se redujo a forma escalonada:")
+        prmatrix(m)
+        break
+      }
+    }
+    else if(entry == 2){
+      s = readline("ingresa la fila  y el escalar, separado por coma:")
+      sInt = strtoi(strsplit(s,",")[[1]])
+      i = sInt[1]
+      a = sInt[2]
+      print("¡operación realizada!")
+      m = elementary_2(m,i,a)
+      prmatrix(m)
+      if(is_echelon_form(m)){
+        print("La matriz se redujo a forma escalonada:")
+        prmatrix(m)
+        break
+      }
+    }
+
+    if(entry == 3){
+      s = readline("ingresa la fila a la que sumarás,
+                   la fila que sumarás y el múltiplo escalar de esta última,
+                   separado por coma:")
+      sInt = strtoi(strsplit(s,",")[[1]])
+      i = sInt[1]
+      j = sInt[2]
+      a = sInt[3]
+      print("¡operación realizada!")
+      m = elementary_3(m,i,j,a)
+      prmatrix(m)
+      if(is_echelon_form(m)){
+        print("La matriz se redujo a forma escalonada:")
+        prmatrix(m)
+        break
+      }
+    }
+  }
+  
+  
+}
+
+main_function()

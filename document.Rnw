@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{enumerate}% http://ctan.org/pkg/enumerate
+\usepackage[thinc]{esdiff}	
+\usepackage{amsfonts}
+\DeclareUnicodeCharacter{0301}{\'{i}}
+\title{Documento de uso}
+\author{Edgar Steven Baquero Acevedo}
+\date{Septiembre 9, 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Primera parte}
+
+
+\section{Segunda parte}
+\end{document}
